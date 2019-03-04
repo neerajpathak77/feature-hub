@@ -23,5 +23,6 @@ module.exports = {
   modulePathIgnorePatterns: ['/lib'],
   setupFilesAfterEnv: ['expect-puppeteer'],
   testMatch: ['<rootDir>/packages/*/src/**/*.test.{ts,tsx}'],
-  testURL: 'http://example.com'
+  testURL: 'http://example.com',
+  transformIgnorePatterns: ['node_modules/(?!lit-(element|html))']
 };

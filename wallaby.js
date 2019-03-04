@@ -16,15 +16,17 @@ function setup({projectCacheDir, testFramework}) {
 module.exports = wallaby => ({
   files: [
     'jest.config.js',
+    {pattern: 'babel.config.js', instrument: false},
     'packages/*/src/**/*.{ts,tsx,snap}',
-    '!packages/{dom,demos}/**/*',
+    '!packages/demos/**/*',
     '!packages/*/src/**/*.test.{ts,tsx}'
   ],
-  tests: ['packages/*/src/**/*.test.{ts,tsx}', '!packages/{dom,demos}/**/*'],
+  tests: ['packages/*/src/**/*.test.{ts,tsx}', '!packages/demos/**/*'],
   env: {type: 'node', runner: 'node'},
   setup,
   testFramework: 'jest',
   compilers: {
-    '**/*.ts?(x)': wallaby.compilers.babel()
+    '**/*.ts?(x)': wallaby.compilers.babel(),
+    '**/node_modules/lit-{element,html}/**/*.js': wallaby.compilers.babel()
   }
 });
