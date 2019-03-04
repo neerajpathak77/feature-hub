@@ -22,6 +22,7 @@ module.exports = {
   },
   modulePathIgnorePatterns: ['/lib'],
   setupFilesAfterEnv: ['expect-puppeteer'],
+  testEnvironment: '<rootDir>/scripts/jest-environment-jsdom-wc.js',
   testMatch: ['<rootDir>/packages/*/src/**/*.test.{ts,tsx}'],
   testURL: 'http://example.com',
   transformIgnorePatterns: ['node_modules/(?!lit-(element|html))']
